@@ -8,21 +8,21 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-    
+    <link rel="stylesheet" href="stylesheets/leaflet.css" />
+    <link rel="stylesheet" href="stylesheets/datatables.css" />
     <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" />
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Nepal earthquakes by dvito</title>
+    <title>Nepal earthquakes by DataNepal</title>
   </head>
 
   <body>
     <header>
       <div class="inner">
-        <h1>Nepal earthquakes</h1>
-        <h2>Quick Site to Map Nepalese Earthquakes</h2>
+        <h1>Nepal Earthquakes</h1>
+        <h2>Earthquakes have been ravaging the country, look at whats been happening, the actual/estimated damages, and who is helping</h2>
         <a href="https://github.com/dvito/nepal_earthquakes" class="button"><small>View project on</small> GitHub</a>
       </div>
     </header>
@@ -30,10 +30,20 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h3> Nepal has been devastated.</h3>
+          <h3> Earthquake Locations</h3>
           <p>Where are the earthquakes happening?</p>
           <div id="earthquake-location-map"></div>
           Data Source: <a href="http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson">USGS Earthquake Feed (2.5 month)</a>
+
+          <h3> Earthquake Damages</h3>
+          <p> Here is a table format of the damages estimated</p>
+          <table id="damages-table">
+
+          </table>
+
+          <h3> Aid to Nepal</h3>
+
+          
         </section>
 
         <aside id="sidebar">
@@ -53,10 +63,26 @@
       </div>
     </div>
 
+
+    <script id="earthquake-popup" type="text/x-handlebars-template">
+      <div class="entry">
+        <h4> {{title}}</h4>
+        <div class="body">
+          <ul>
+            <li>Magnitude - {{mag}}</li>
+            <li>Felt - {{felt}}</li>
+            <li>Time - {{dateFormat time format="LLLL"}}</li>
+            <li>Last Updated: {{dateFormat updated format="LLLL"}}</li>
+          </ul>
+        </div>
+      </div>
+    </script>
     <script type="text/javascript" src="javascripts/jquery.js"></script>
     <script type="text/javascript" src="javascripts/underscore.js"></script>
+    <script type="text/javascript" src="javascripts/moment.js"></script>
     <script type="text/javascript" src="javascripts/handlebars.js"></script>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="javascripts/leaflet.js"></script>
+    <script src="javascripts/datatables.js"></script>
     <script type="text/javascript" src="javascripts/main.js"></script>
   </body>
 </html>
